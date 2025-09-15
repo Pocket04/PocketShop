@@ -1,9 +1,8 @@
-package app.orders.web.dtos.mappers;
+package app.orders.web.mappers;
 
 import app.orders.models.Order;
 import app.orders.web.dtos.responses.CreateOrderResponse;
 import app.orders.web.dtos.responses.GetUserOrdersResponse;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 

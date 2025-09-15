@@ -1,7 +1,5 @@
 package app.orders.web.dtos.responses;
 
-import app.orders.models.Order;
-import lombok.Data;
 
 import java.util.List;
 import java.util.UUID;
