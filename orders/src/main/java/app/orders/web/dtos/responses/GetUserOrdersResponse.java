@@ -5,13 +5,13 @@ import app.orders.models.Order;
 import java.util.List;
 
 public class GetUserOrdersResponse {
-    private List<Order> orders;
+    private List<CreateOrderResponse> orders;
 
-    public List<Order> getOrders() {
+    public List<CreateOrderResponse> getOrders() {
         return orders;
     }
 
-    public void setOrders(List<Order> orders) {
+    public void setOrders(List<CreateOrderResponse> orders) {
         this.orders = orders;
     }
 }

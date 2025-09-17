@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -23,8 +24,8 @@ public class OrdersRestController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<GetUserOrdersResponse> getOrdersByUserId(@PathVariable UUID id){
-        return ResponseEntity.ok(DtoMapper.mapOrdersToGetUserOrdersResponse(orderService.getOrdersByUserId(id)));
+    public ResponseEntity<List<CreateOrderResponse>> getOrdersByUserId(@PathVariable UUID id){
+        return ResponseEntity.ok(orderService.getOrdersByUserId(id));
     }
 
     @PostMapping()

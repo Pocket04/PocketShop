@@ -8,16 +8,16 @@ import java.util.List;
 
 public class DtoMapper {
 
-    public static GetUserOrdersResponse mapOrdersToGetUserOrdersResponse(List<Order> order){
+    public static GetUserOrdersResponse mapOrdersToGetUserOrdersResponse(List<CreateOrderResponse> orders){
         GetUserOrdersResponse dto = new GetUserOrdersResponse();
-        dto.setOrders(order);
+        dto.setOrders(orders);
         return dto;
     }
 
     public static CreateOrderResponse mapOrderToCreateOrderResponse(Order order){
         CreateOrderResponse dto = new CreateOrderResponse();
         dto.setProductsIds(order.getProductsIds());
-        dto.setUserId(order.getUserId());
+        dto.setId(order.getId());
         return dto;
     }
 

@@ -1,13 +1,14 @@
-package app.orders.web.dtos.requests;
+package app.gateway.web.dtos;
+
 
 import java.util.List;
 import java.util.UUID;
 
-public class CreateOrderRequest {
+public class CreateNewOrderRequest {
 
     private List<UUID> productIds;
 
-    private UUID userId;
+    private UUID id;
 
     public List<UUID> getProductIds() {
         return productIds;
@@ -17,10 +18,11 @@ public class CreateOrderRequest {
     }
 
     public UUID getUserId() {
-        return userId;
+        return id;
     }
 
-    public void setUserId(UUID userId) {
-        this.userId = userId;
+    public void setUserId(UUID id) {
+        this.id = id;
     }
+
 }
