@@ -3,7 +3,6 @@ package app.products.services;
 import app.products.modules.Product;
 import app.products.repositories.ProductRepository;
 import app.products.web.dtos.requests.CreateProductRequest;
-import app.products.web.dtos.requests.GetProductsBasedOnId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,8 +34,8 @@ public class ProductService {
         return optProduct.isPresent()? optProduct.get() : null;
     }
 
-    public List<Product> getSelectedProductsByIds(GetProductsBasedOnId dto){
-        return productRepository.findAllById(dto.getIds());
+    public List<Product> getSelectedProductsByIds(List<UUID> ids){
+        return productRepository.findAllById(ids);
     }
 
     public List<Product> getAllProducts(){

@@ -2,7 +2,6 @@ package app.products.web;
 
 import app.products.services.ProductService;
 import app.products.web.dtos.requests.CreateProductRequest;
-import app.products.web.dtos.requests.GetProductsBasedOnId;
 import app.products.web.dtos.responses.GetProductResponse;
 import app.products.web.mappers.DtoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +15,7 @@ import java.util.UUID;
 @RequestMapping("/products")
 public class ProductRestController {
 
-
     private final ProductService productService;
-
 
     @Autowired
     public ProductRestController(ProductService productService) {
@@ -38,7 +35,7 @@ public class ProductRestController {
         return ResponseEntity.ok(DtoMapper.mapProductsListToGetProductResponseList(productService.getAllProducts()));
     }
     @GetMapping("/order")
-    public ResponseEntity<List<GetProductResponse>> getSpecificProducts(@RequestBody GetProductsBasedOnId dto){
-        return ResponseEntity.ok(DtoMapper.mapProductsListToGetProductResponseList(productService.getSelectedProductsByIds(dto)));
+    public ResponseEntity<List<GetProductResponse>> getSpecificProducts(@RequestParam List<UUID> ids){
+        return ResponseEntity.ok(DtoMapper.mapProductsListToGetProductResponseList(productService.getSelectedProductsByIds(ids)));
     }
 }
