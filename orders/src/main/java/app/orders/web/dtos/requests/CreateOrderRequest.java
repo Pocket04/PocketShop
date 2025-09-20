@@ -5,15 +5,15 @@ import java.util.UUID;
 
 public class CreateOrderRequest {
 
-    private List<UUID> productIds;
+    private List<UUID> productsIds;
 
     private UUID userId;
 
-    public List<UUID> getProductIds() {
-        return productIds;
+    public List<UUID> getProductsIds() {
+        return productsIds;
     }
-    public void setProductIds(List<UUID> productIds) {
-        this.productIds = productIds;
+    public void setProductsIds(List<UUID> productsIds) {
+        this.productsIds = productsIds;
     }
 
     public UUID getUserId() {

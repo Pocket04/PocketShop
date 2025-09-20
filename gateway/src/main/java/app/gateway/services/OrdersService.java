@@ -25,9 +25,6 @@ public class OrdersService {
     }
 
     public Order createNewOrder(CreateNewOrderRequest dto){
-        Order order = new Order();
-        order.setProductsIds(dto.getProductIds());
-        order.setId(dto.getUserId());
-        return order;
+        return ordersFeign.createNewOrder(dto);
     }
 }

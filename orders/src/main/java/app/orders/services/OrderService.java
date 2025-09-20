@@ -27,8 +27,7 @@ public class OrderService {
     public Order createOrder(CreateOrderRequest dto){
         Order order = new Order();
         order.setUserId(dto.getUserId());
-        order.setProductsIds(dto.getProductIds());
-
+        order.setProductsIds(dto.getProductsIds());
         return orderRepository.save(order);
     }
 
