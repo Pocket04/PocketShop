@@ -1,8 +1,8 @@
 package app.gateway.web;
 
-import app.gateway.feign.ProductsFeign;
 import app.gateway.feign.props.Product;
-import app.gateway.feign.requests.CreateNewProductRequest;
+import app.gateway.web.dtos.CreateNewProductRequest;
+import app.gateway.services.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,32 +14,31 @@ import java.util.UUID;
 @RequestMapping("/products")
 public class ProductsRestController {
 
-    private final ProductsFeign productsFeign;
+    private final ProductsService productsService;
 
 
     @Autowired
-    public ProductsRestController(ProductsFeign productsFeign) {
-        this.productsFeign = productsFeign;
+    public ProductsRestController(ProductsService productsService) {
+        this.productsService = productsService;
     }
 
     @GetMapping("/order")
     public ResponseEntity<List<Product>> getProductsFromAnOrder(@RequestParam List<UUID> ids){
-        return ResponseEntity.ok(productsFeign.getProductsBasedOnId(ids));
+        return ResponseEntity.ok(productsService.getProductsBasedOnId(ids));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductBasedOnId(@PathVariable UUID id){
-        return ResponseEntity.ok(productsFeign.getProductById(id));
+        return ResponseEntity.ok(productsService.getSpecificProduct(id));
     }
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<Product> createNewProduct(@RequestBody CreateNewProductRequest dto){
-        return ResponseEntity.ok(productsFeign.createNewProduct(dto));
+        return ResponseEntity.ok(productsService.createNewProduct(dto));
     }
 
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts(){
-        return ResponseEntity.ok(productsFeign.getAllProducts());
+        return ResponseEntity.ok(productsService.getAllProducts());
     }
-
 }

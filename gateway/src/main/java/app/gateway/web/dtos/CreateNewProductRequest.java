@@ -1,4 +1,4 @@
-package app.gateway.feign.requests;
+package app.gateway.web.dtos;
 
 import java.math.BigDecimal;
 

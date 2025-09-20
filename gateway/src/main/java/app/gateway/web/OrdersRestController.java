@@ -31,5 +31,4 @@ public class OrdersRestController {
     public ResponseEntity<Order> createNewOrder(@RequestBody CreateNewOrderRequest dto){
         return ResponseEntity.ok(ordersService.createNewOrder(dto));
     }
-
 }

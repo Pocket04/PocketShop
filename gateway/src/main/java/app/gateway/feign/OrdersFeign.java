@@ -20,5 +20,4 @@ public interface OrdersFeign {
     @RequestMapping(method = RequestMethod.POST)
     Order createNewOrder(@RequestBody CreateNewOrderRequest dto);
 
-
 }

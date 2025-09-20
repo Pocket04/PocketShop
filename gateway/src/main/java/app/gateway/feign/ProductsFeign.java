@@ -1,7 +1,7 @@
 package app.gateway.feign;
 
 import app.gateway.feign.props.Product;
-import app.gateway.feign.requests.CreateNewProductRequest;
+import app.gateway.web.dtos.CreateNewProductRequest;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +10,6 @@ import java.util.UUID;
 
 @FeignClient(name = "products", url = "http://localhost:8082/products")
 public interface ProductsFeign {
-
 
     @GetMapping
     List<Product> getAllProducts();
